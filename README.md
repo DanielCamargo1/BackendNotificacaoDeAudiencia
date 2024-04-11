@@ -4,8 +4,8 @@ Esta é uma API para gerenciar audiências, permitindo criar, visualizar, atuali
 
 ## Funcionalidades
 
-- **Criar Audiência**: Adiciona uma nova audiência ao sistema, fornecendo nome da audiência e quantidade de pessoas presentes.
-- **Listar Audiências**: Retorna uma lista de todas as audiências armazenadas no sistema, incluindo detalhes como ID, nome e quantidade de pessoas.
+- **Criar Audiência**: Adiciona uma nova audiência ao sistema, fornecendo nome da audiência e quantidade de pessoas presentes e a localidade.
+- **Listar Audiências**: Retorna uma lista de todas as audiências armazenadas no sistema, incluindo detalhes como ID, nome e quantidade de pessoas e a localidade.
 - **Atualizar Audiência**: Permite atualizar os detalhes de uma audiência existente.
 - **Excluir Audiência**: Remove uma audiência do sistema com base no seu ID.
 - **Obter Total de Audiências**: Retorna o número total de audiências armazenadas no sistema.
