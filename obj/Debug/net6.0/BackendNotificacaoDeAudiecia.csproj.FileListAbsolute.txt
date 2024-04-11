@@ -40,3 +40,4 @@ C:\Users\danid\source\repos\BackendNotificacaoDeAudiecia\BackendNotificacaoDeAud
 C:\Users\danid\source\repos\BackendNotificacaoDeAudiecia\BackendNotificacaoDeAudiecia\obj\Debug\net6.0\BackendNotificacaoDeAudiecia.pdb
 C:\Users\danid\source\repos\BackendNotificacaoDeAudiecia\BackendNotificacaoDeAudiecia\obj\Debug\net6.0\BackendNotificacaoDeAudiecia.genruntimeconfig.cache
 C:\Users\danid\source\repos\BackendNotificacaoDeAudiecia\BackendNotificacaoDeAudiecia\obj\Debug\net6.0\ref\BackendNotificacaoDeAudiecia.dll
+C:\Users\danid\source\repos\BackendNotificacaoDeAudiecia\BackendNotificacaoDeAudiecia\obj\Debug\net6.0\BackendNotificacaoDeAudiecia.sourcelink.json

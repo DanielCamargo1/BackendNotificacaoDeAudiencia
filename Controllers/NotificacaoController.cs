@@ -17,8 +17,6 @@ namespace BackendNotificacaoDeAudiecia.Controllers
             _context = context;       
         }
 
-        public List<AudienciaModels> listAudiencia = new List<AudienciaModels>();
-
         [HttpGet]
         public async Task<ActionResult<IEnumerable<AudienciaModels>>> GetAudiencia()
         {
@@ -60,13 +58,28 @@ namespace BackendNotificacaoDeAudiecia.Controllers
             {
                 _context.Audiencia.Add(audiencia);
                 _context.SaveChanges();
-                listAudiencia.Add(audiencia); // Adicionando a quantidade de pessoas à lista
                 return CreatedAtAction("GetAudiencia", new { id = audiencia.Id }, audiencia);
             }
             else
             {
                 return BadRequest("Audiência não pode ser agendada antes das 15:30 e depois das 20:20");
             }
+        }
+
+        [HttpPut]
+        public async Task<ActionResult<AudienciaModels>> UpdateAudiencia(int id, AudienciaModels audiencia)
+        {
+            var user = await _context.Audiencia.FindAsync(id);
+            if(user != null)
+            {
+                user.Nome = audiencia.Nome;
+                user.QuantidadeDePessoas = audiencia.QuantidadeDePessoas;
+                user.Cidade = audiencia.Cidade;
+                user.Uf = audiencia.Uf;
+                _context.SaveChanges();
+                return Ok(audiencia);
+            }
+            return BadRequest("O Id digitado está inválido");
         }
 
         [HttpDelete]
