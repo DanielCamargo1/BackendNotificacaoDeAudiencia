@@ -16,15 +16,20 @@ namespace BackendNotificacaoDeAudiecia.Controllers
         {
             _context = context;       
         }
+        private bool VerificaHorario()
+        {
+            TimeSpan horario = DateTime.Now.TimeOfDay;
+            TimeSpan horarioInicial = new TimeSpan(18, 30, 0);  // -> CASO TESTE, MUDAR O HORÁRIO PRA FUNCIONAR
+            TimeSpan horarioFinal = new TimeSpan(20, 20, 0);
+
+            return horario >= horarioInicial && horarioFinal >= horario;
+        }
 
         [HttpGet]
         public async Task<ActionResult<IEnumerable<AudienciaModels>>> GetAudiencia()
         {
-            TimeSpan horarioAtual = DateTime.Now.TimeOfDay;
-            TimeSpan horarioInicial = new TimeSpan(10, 30, 0);  // -> MUDAR O HORARIO AO ENTREGAR
-            TimeSpan horarioFinal = new TimeSpan(20, 20, 0);
 
-            if (horarioAtual >= horarioInicial && horarioFinal >= horarioAtual)
+            if (VerificaHorario())
             {
                 var audiencias = await _context.Audiencia.ToListAsync();
                 int totalDePessoas = audiencias.Sum(a => a.QuantidadeDePessoas);
@@ -50,11 +55,8 @@ namespace BackendNotificacaoDeAudiecia.Controllers
         [HttpPost]
         public async Task<ActionResult<AudienciaModels>> PostAudiencias(AudienciaModels audiencia)
         {
-            TimeSpan horarioAtual = DateTime.Now.TimeOfDay;
-            TimeSpan horarioInicial = new TimeSpan(10, 30, 0);// -> MUDAR O HORARIO AO ENTREGAR
-            TimeSpan horarioFinal = new TimeSpan(20, 20, 0);
-
-            if (horarioAtual >= horarioInicial && horarioFinal >= horarioAtual)
+         
+            if (VerificaHorario())
             {
                 _context.Audiencia.Add(audiencia);
                 _context.SaveChanges();
@@ -62,7 +64,7 @@ namespace BackendNotificacaoDeAudiecia.Controllers
             }
             else
             {
-                return BadRequest("Audiência não pode ser agendada antes das 15:30 e depois das 20:20");
+                return BadRequest("Audiência não pode ser agendada antes das 18:30 e depois das 20:20");
             }
         }
 
@@ -109,7 +111,7 @@ namespace BackendNotificacaoDeAudiecia.Controllers
             }
             else
             {
-                return BadRequest("Infelismente não contem usuário com esse id");
+                return BadRequest("Infelizmente não existe usuário com esse id");
             }
         }
     }

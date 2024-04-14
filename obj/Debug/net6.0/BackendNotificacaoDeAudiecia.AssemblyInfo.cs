@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("BackendNotificacaoDeAudiecia")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+8f4efb56c05ef192a9f233085c78f7e153b32e47")]
 [assembly: System.Reflection.AssemblyProductAttribute("BackendNotificacaoDeAudiecia")]
 [assembly: System.Reflection.AssemblyTitleAttribute("BackendNotificacaoDeAudiecia")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
